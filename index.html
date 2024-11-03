@@ -8,8 +8,6 @@
 </head>
 <body>
     <header>
-        <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
-        <script src="https://mediafiles.botpress.cloud/3cf791bc-dd87-4ec2-894c-5ead2340c033/webchat/config.js" defer></script>
         <h1>Tiptiptap chatbot prototüüp!</h1>
         <!-- You can also insert chatbot UI elements here if necessary -->
     </header>
@@ -17,7 +15,7 @@
     import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js"
     Chatbot.init({
         chatflowid: "6a4af43c-1467-45da-a5b0-4be44467006b",
-        apiHost: "https://organic-couscous-jp9jpr6qj57c5g4x-3000.app.github.dev",
+        apiHost: "https://flowise-deployment-u53o.onrender.com",
         chatflowConfig: {
             // topK: 2
         },
@@ -96,6 +94,8 @@
         }
     })
 </script>
+
+
     <main>
         <!-- Main content goes here -->
         <h3> 1) Päris versioon Tiptiptapi veebilehel tuvastaks kasutaja keele veebilehe järgi automaatselt ja tervitaks esimesena õiges keeles, siin aga kirjutage esimene sõnum ise, et bot käivitada (vähemalt 2-3 sõna, siis tuvastab keele õigesti, ja käivitub. Nt: "Tere päevast") </h3>
