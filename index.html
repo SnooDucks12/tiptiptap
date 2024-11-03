@@ -13,7 +13,10 @@
     </header>
     <script type="module">
     import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js";
-    
+        
+        const tooltipMessage = window.location.href.includes('/github/')
+            ? "I'll help you in any language! 👋" // English message
+            : "Aitan teid igas keeles! 👋";       // Estonian message    
     Chatbot.init({
         chatflowid: "6a4af43c-1467-45da-a5b0-4be44467006b",
         apiHost: "https://flowise-deployment-u53o.onrender.com",
@@ -37,9 +40,9 @@
             },
             tooltip: {
                 showTooltip: true,
-                tooltipMessage: "I'll help in any language👋!",
-                tooltipBackgroundColor: 'black',
-                tooltipTextColor: 'white',
+                tooltipMessage: tooltipMessage,
+                tooltipBackgroundColor: 'white',
+                tooltipTextColor: 'black',
                 tooltipFontSize: 16
             },
             chatWindow: {
