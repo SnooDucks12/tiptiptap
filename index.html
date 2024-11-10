@@ -4,26 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tiptiptap</title>
-    <!-- Include your Botpress chatbot script here -->
 </head>
 <body>
     <header>
         <h1>Tiptiptap chatbot</h1>
-        <!-- You can also insert chatbot UI elements here if necessary -->
     </header>
 
-    ###CHATBOTI OSA###
+    <!-- CHATBOTI OSA -->
     <script type="module">
     import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js"
         
         const isEnglish = window.location.href.includes('/en');
 
-        // Set tooltipMessage separately for the tooltip
         const tooltipMessage = isEnglish
             ? "I'll help you in any language!👋" // English message
             : "Aitan sind igas keeles!👋";       // Estonian message
         
-        // Set other variables based on the language
         const welcomeMessage = isEnglish
             ? "Hi there! I'm here to help you quickly find what you need. Just ask away! (Conversation can be viewed and saved by Tiptiptap)"
             : 'Hei! Aitan sul kiiremini leida, mida otsid. Küsi julgelt! (Tiptiptap saab vestlust assistendiga näha ja salvestada)';
@@ -46,7 +42,15 @@
         
         const maxCharsWarningMessage = isEnglish
             ? 'You exceeded the characters limit. Please input less than 50 characters.'
-            : 'Ületasite tähemärkide piiri. Palun sisestage vähem kui 50 tähemärki.';   
+            : 'Ületasite tähemärkide piiri. Palun sisestage vähem kui 50 tähemärki.';
+            
+        const hasAutoOpened = localStorage.getItem('chatbotAutoOpened');
+
+        if (!hasAutoOpened) {
+        // Set flag in localStorage to indicate auto-open has occurred
+        localStorage.setItem('chatbotAutoOpened', 'true');
+    }
+
     Chatbot.init({
         chatflowid: "3e885364-92b9-46b1-88a5-8da7233f9260",
         apiHost: "https://flowise-deployment-u53o.onrender.com",
@@ -55,7 +59,7 @@
         },
         theme: {
             button: {
-                backgroundColor: "#E30000",
+                backgroundColor: "#ff4242",
                 right: 20,
                 bottom: 20,
                 size: 48, // small | medium | large | number
@@ -63,8 +67,8 @@
                 iconColor: "white",
                 customIconSrc: "./Chatbox.png",
                 autoWindowOpen: {
-                    autoOpen: true, // parameter to control automatic window opening
-                    openDelay: 2, // Optional parameter for delay time in seconds
+                    autoOpen: !hasAutoOpened, // parameter to control automatic window opening
+                    openDelay: 3, // Optional parameter for delay time in seconds
                     autoOpenOnMobile: false // parameter to control automatic window opening in mobile
                 }
             },
@@ -98,7 +102,7 @@
                     avatarSrc: "./Chatavatar.png",
                 },
                 userMessage: {
-                    backgroundColor: "#E30000",
+                    backgroundColor: "#ff4242",
                     textColor: "#ffffff",
                     showAvatar: true,
                     avatarSrc: "https://raw.githubusercontent.com/zahidkhawaja/langchain-chat-nextjs/main/public/usericon.png"
@@ -107,7 +111,7 @@
                     placeholder: placeholder,
                     backgroundColor: '#ffffff',
                     textColor: '#303235',
-                    sendButtonColor: '#E30000',
+                    sendButtonColor: '#ff4242',
                     maxChars: 100,
                     maxCharsWarningMessage: maxCharsWarningMessage,
                     autoFocus: true, // If not used, autofocus is disabled on mobile and enabled on desktop. true enables it on both, false disables it on both.
@@ -130,7 +134,7 @@
     });
 </script>
 
-###CHATBOTI OSA LÕPP###
+<!-- CHATBOTI OSA LÕPP -->
 
 
 
