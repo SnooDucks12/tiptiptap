@@ -51,6 +51,10 @@
         localStorage.setItem('chatbotAutoOpened', 'true');
     }
 
+    /* MUUTKE ASUKOHTA, KUI VAJA */
+    const ChatAvatarSrc = './Chatavatar.png';
+    const ChatboxAvatarSrc = './Chatbox.png';
+
     Chatbot.init({
         chatflowid: "3e885364-92b9-46b1-88a5-8da7233f9260",
         apiHost: "https://flowise-deployment-u53o.onrender.com",
@@ -65,7 +69,7 @@
                 size: 48, // small | medium | large | number
                 dragAndDrop: true,
                 iconColor: "white",
-                customIconSrc: "./Chatbox.png",
+                customIconSrc: ChatboxAvatarSrc,
                 autoWindowOpen: {
                     autoOpen: !hasAutoOpened, // parameter to control automatic window opening
                     openDelay: 3, // Optional parameter for delay time in seconds
@@ -82,7 +86,7 @@
             chatWindow: {
                 showTitle: true,
                 title: title,
-                titleAvatarSrc: './Chatavatar.png',
+                titleAvatarSrc: ChatAvatarSrc,
 
                 showAgentMessages: false,
                 welcomeMessage: welcomeMessage,
@@ -99,7 +103,7 @@
                     backgroundColor: "#f7f8ff",
                     textColor: "#303235",
                     showAvatar: true,
-                    avatarSrc: "./Chatavatar.png",
+                    avatarSrc: ChatAvatarSrc,
                 },
                 userMessage: {
                     backgroundColor: "#E30000",
