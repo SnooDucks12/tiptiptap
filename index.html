@@ -11,6 +11,8 @@
         <h1>Tiptiptap chatbot</h1>
         <!-- You can also insert chatbot UI elements here if necessary -->
     </header>
+
+    ###CHATBOTI OSA###
     <script type="module">
     import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js"
         
@@ -23,9 +25,13 @@
         
         // Set other variables based on the language
         const welcomeMessage = isEnglish
-            ? "Hi there! I'm here to help you quickly find what you need. Just ask away!"
-            : 'Hei! Aitan sul kiiremini leida, mida otsid. Küsi julgelt!';
+            ? "Hi there! I'm here to help you quickly find what you need. Just ask away! (Conversation can be viewed and saved by Tiptiptap)"
+            : 'Hei! Aitan sul kiiremini leida, mida otsid. Küsi julgelt! (Tiptiptap saab vestlust assistendiga näha ja salvestada)';
         
+        const title = isEnglish
+        ? "Tiptiptap Assistant"
+        : "Tiptiptap'i Assistent"; 
+
         const errorMessage = isEnglish
             ? 'Sorry, something went wrong!'
             : 'Vabandust, midagi läks valesti!';
@@ -67,11 +73,11 @@
                 tooltipMessage: tooltipMessage,
                 tooltipBackgroundColor: 'white',
                 tooltipTextColor: 'black',
-                tooltipFontSize: 16
+                tooltipFontSize: 20,
             },
             chatWindow: {
                 showTitle: true,
-                title: 'Mr. Tiptap',
+                title: title,
                 titleAvatarSrc: './Chatavatar.png',
 
                 showAgentMessages: false,
@@ -123,7 +129,9 @@
         }
     });
 </script>
-    
+
+###CHATBOTI OSA LÕPP###
+
 
 
     <main>
