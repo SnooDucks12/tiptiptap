@@ -3,30 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tiptiptap</title>
+    <title>Tere</title>
+    <style>
+        .chatbot-container {
+        border: 2px solid black !important;
+        border-radius: 10px !important;
+    }
+    </style>
+
 </head>
 <body>
     <header>
-        <h1>Tiptiptap chatbot</h1>
+        <h1>Tiptiptap tere</h1>
     </header>
 
     <!-- CHATBOTI OSA -->
     <script type="module">
-    import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js"
+    import Chatbot from "https://cdn.jsdelivr.net/gh/FlowiseAI/FlowiseChatEmbed@main/dist/web.js"
         
         const isEnglish = window.location.href.includes('/en');
 
         const tooltipMessage = isEnglish
             ? "I'll help you in any language!👋" // English message
-            : "Aitan sind igas keeles!👋";       // Estonian message
+            : "Kohesed KKK-de vastused!👋";       // Estonian message
         
         const welcomeMessage = isEnglish
             ? "Hi there! I'm here to help you quickly find what you need. Just ask away! (Conversation can be viewed and saved by Tiptiptap)"
-            : 'Hei! Aitan sul kiiremini leida, mida otsid. Küsi julgelt! (Tiptiptap saab vestlust assistendiga näha ja salvestada)';
+            : 'Hei! Annan kohese vastuse levinud küsimustele!';
         
         const title = isEnglish
         ? "Tiptiptap Assistant"
-        : "Tiptiptap'i Assistent"; 
+        : "Decora Assistent"; 
 
         const errorMessage = isEnglish
             ? 'Sorry, something went wrong!'
@@ -34,7 +41,7 @@
         
         const starterPrompts = isEnglish
             ? ["I'll try the 3D planner!", "Where can I sort and see all products?","Do you have playgrounds that educate children?"]
-            : ["Prooviksin 3D planeerijat!", "Kust saan sorteerida ja näha kõiki tooteid?", "On teil mänguväljakuid, mis annaksid lastele teadmisi?"];
+            : ["Kui kaua tellimusega läheb?", "Kuidas osta ärikliendina?", "Kuidas saan kauba kauplusest kätte??"];
         
         const placeholder = isEnglish
             ? 'Type your question..'
@@ -54,17 +61,17 @@
     /* MUUTKE ASUKOHTA, KUI VAJA */
     const ChatAvatarSrc = './Chatavatar.png';
     const ChatboxAvatarSrc = './Chatbox.png';
-    const messageSoundReceive = "./receive_message.mp3";
+
     Chatbot.init({
-        chatflowid: "3e885364-92b9-46b1-88a5-8da7233f9260",
+        chatflowid: "16a7c51b-c55f-4d5d-a4e4-4a264a0108db",
         apiHost: "https://flowise-deployment-u53o.onrender.com",
         chatflowConfig: {
             // topK: 2
         },
         theme: {
             button: {
-                backgroundColor: "#E30000",
-                right: 40,
+                backgroundColor: "#ffee00",
+                right: 20,
                 bottom: 20,
                 size: 48, // small | medium | large | number
                 dragAndDrop: true,
@@ -83,6 +90,12 @@
                 tooltipTextColor: 'black',
                 tooltipFontSize: 20,
             },
+            customCSS: `
+                    .chatbot-container {
+                        border: 1px solid #000 !important;
+                        border-radius: 10px !important;
+                    }
+                `,
             chatWindow: {
                 showTitle: true,
                 title: title,
@@ -106,7 +119,7 @@
                     avatarSrc: ChatAvatarSrc,
                 },
                 userMessage: {
-                    backgroundColor: "#E30000",
+                    backgroundColor: "#ffee00",
                     textColor: "#ffffff",
                     showAvatar: true,
                     avatarSrc: "https://raw.githubusercontent.com/zahidkhawaja/langchain-chat-nextjs/main/public/usericon.png"
@@ -115,14 +128,14 @@
                     placeholder: placeholder,
                     backgroundColor: '#ffffff',
                     textColor: '#303235',
-                    sendButtonColor: '#E30000',
+                    sendButtonColor: '#ffee00',
                     maxChars: 100,
                     maxCharsWarningMessage: maxCharsWarningMessage,
                     autoFocus: true, // If not used, autofocus is disabled on mobile and enabled on desktop. true enables it on both, false disables it on both.
                     sendMessageSound: true,
                     // sendSoundLocation: "send_message.mp3", // If this is not used, the default sound effect will be played if sendSoundMessage is true.
                     receiveMessageSound: true,
-                    receiveSoundLocation: messageSoundReceive, // If this is not used, the default sound effect will be played if receiveSoundMessage is true. 
+                    receiveSoundLocation: "./receive_message.mp3", // If this is not used, the default sound effect will be played if receiveSoundMessage is true. 
                 },
                 feedback: {
                     color: '#303235'
@@ -132,17 +145,19 @@
                     text: 'Powered by',
                     company: 'Verbotica OÜ',
                     companyLink: ''
-                }
+                },
+                
             }
+        },
+        onInit: function() {
+            setTimeout(styleChatbotContainer, 3000);
         }
     });
-</script>
 
+    
+    
+</script>
 <!-- CHATBOTI OSA LÕPP -->
 
-
-
-    <main>
-    </main>
 </body>
 </html>
